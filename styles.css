@@ -26,3 +26,16 @@ section#letter-screen , section#score-screen {
     margin-top: 5%;
     display: none;
 }
+.hide{
+    display: none;
+}
+button{
+    border: none;
+    padding: 1% 6%;
+    border-radius: 33px;
+    background: #fcc482;
+    font-size: large;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
