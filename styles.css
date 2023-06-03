@@ -1,0 +1,28 @@
+body{
+    font-family: 'Courier New', Courier, monospace;
+}
+.centered-content , #game-screen , .word-container{
+    display: flex;
+    justify-content: center;
+}
+#game-screen{
+    margin-top: 5%;
+}
+input.letter-box {
+    padding: 3%;
+    width: 3%;
+    font-size: large;
+}
+div#incorrect-letters {
+    display: flex;
+    font-size: x-large;
+    margin-top: -3%;
+}
+div#incorrect-letters h4 {
+    margin-right: 2%;
+}
+section#letter-screen , section#score-screen {
+    margin-left: 10%;
+    margin-top: 5%;
+    display: none;
+}
