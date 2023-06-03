@@ -8,18 +8,28 @@
     <title>Hangman PRO</title>
 </head>
 <body>
-    <div class="centered-content"><h1>Hangman Pro</h1></div>
+    <nav>
+        <a href="index.html"><button class="navbar-btns">Version 1</button></a>
+        <a href="index2.html"><button class="navbar-btns">Version 2</button></a>
+    </nav>
+
+    <div class="centered-content"><h1>Hangman Pro (version 1)</h1></div>
 
     <!-- Version 1 -->
 
-    <div class="centered-content"><button id="start-game">Play</button></div>
-    <div class="centered-content"><button id="replay-game" class="hide">Play</button></div>
+    <div class="centered-content"><button id="start-game" class="action-tbns">Play</button></div>
+    <div class="centered-content"><button id="replay-game" class="action-btns hide">Play</button></div>
 
     <section id="game-screen"></section>
 
     <section id="letter-screen">
         <h4>Incorrect Letters:</h4>
         <div id="incorrect-letters"></div>
+    </section>
+
+    <section id="letter-screen-2">
+        <h4>Correct Letters, Wrong Location:</h4>
+        <div id="halfcorrect-letters"></div>
     </section>
 
     <section id="score-screen">

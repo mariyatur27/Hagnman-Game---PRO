@@ -12,6 +12,23 @@ let score = document.getElementById('tries-left');
 let used_letters_arr=[];
 let secret_word;
 let current_score;
+let guessed_letters = 0;
+
+const scoreTracker = (score, guessed_letters, correct_letter_guessed) => {
+    if (score > 0){
+        if(guessed_letters == correct_letter_guessed){
+            alert('Congradulations! You won!')
+        }
+    }
+    if (score == 0){
+        var inputs = document.getElementsByClassName('letter-box');
+        for(var i = 0; i < inputs.length; i++){
+            document.getElementById(inputs[i].id).readOnly = true;
+            alert('Sorry, you lost! Play another game :)')
+        }
+    }
+
+}
 
 const checkInput = (id, word_arr) => {
     var input = document.getElementById(id).value;
@@ -26,7 +43,11 @@ const checkInput = (id, word_arr) => {
             
             if (!used_letters_arr.includes(input)){
                 let input_ele = document.createElement('h4'); input_ele.innerHTML = input;
-                document.getElementById('incorrect-letters').appendChild(input_ele);
+                if (word_arr.includes(input)){
+                    document.getElementById('halfcorrect-letters').appendChild(input_ele);
+                }else{
+                    document.getElementById('incorrect-letters').appendChild(input_ele);
+                }
                 used_letters_arr.push(input);
                 current_score --;
                 score.innerHTML = current_score;
@@ -34,6 +55,7 @@ const checkInput = (id, word_arr) => {
         }
         //if the letter is right
         else{
+            guessed_letters++;
             //counting the number of times this letter occurs in a word
             var occurences = word_arr.filter(x => x == input).length;
             //looping through the object
@@ -57,6 +79,10 @@ const checkInput = (id, word_arr) => {
         document.getElementById(id).value = '';
         alert('You can only use letters!')
     }
+
+    let word_arr_no_duplicates = [...new Set(word_arr)].length
+    
+    scoreTracker(current_score , guessed_letters , word_arr_no_duplicates);
     
 }
 
@@ -85,8 +111,9 @@ const buildScreen = (word) => {
         }
     document.getElementById('game-screen').appendChild(container);
     document.getElementById('letter-screen').style.display='block';
+    document.getElementById('letter-screen-2').style.display='block';
     document.getElementById('score-screen').style.display='block';
-    current_score = secret_word.length + 5;
+    current_score = secret_word.length + 2;
     score.innerHTML = current_score;
 
     createDataset(word.split(''));
@@ -102,7 +129,9 @@ const chooseWord = () => {
 const restartGame = () => {
     document.getElementById('game-screen').innerHTML = '';
     document.getElementById('incorrect-letters').innerHTML = '';
+    document.getElementById('halfcorrect-letters').innerHTML = '';
     document.getElementById('tries-left').innerHTML = '';
+    used_letters_arr=[];
     chooseWord();
 }
 
