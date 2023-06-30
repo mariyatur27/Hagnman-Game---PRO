@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet"/>
+    <title>Hangman PRO</title>
+</head>
+<body>
+    <nav>
+        <a href="../index.html"><button class="navbar-btns">Version 1</button></a>
+        <a href="index_2.html"><button class="navbar-btns">Version 2</button></a>
+    </nav>
+
+    <div class="centered-content"><h1>Hangman Pro (version 2)</h1></div>
+    <div class="centered-content"><button class="action-btns" id="start-game" onclick="selectWord()">Play</button></div>
+    <div class="centered-content"><button class="action-btns hide" id="replay-game">Replay</button></div>
+
+    <!-- Version 2 -->
+    <section id="letter-field"></section>
+    <section id="letters-bank"></section>
+    <section id="current-tries-count">Tries Left: <span id='tries-count'></span></section>
+    
+
+    <script src="script_2.js"></script>
+</body>
+</html>

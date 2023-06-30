@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="styles.css" rel="stylesheet"/>
+    <link href="src/styles.css" rel="stylesheet"/>
     <title>Hangman PRO</title>
 </head>
 <body>
     <nav>
         <a href="index.html"><button class="navbar-btns">Version 1</button></a>
-        <a href="index2.html"><button class="navbar-btns">Version 2</button></a>
+        <a href="src/index_2.html"><button class="navbar-btns">Version 2</button></a>
     </nav>
 
     <div class="centered-content"><h1>Hangman Pro (version 1)</h1></div>
 
     <!-- Version 1 -->
 
-    <div class="centered-content"><button id="start-game" class="action-tbns">Play</button></div>
-    <div class="centered-content"><button id="replay-game" class="action-btns hide">Play</button></div>
+    <div class="centered-content"><button id="start-game" class="action-tbns" onclick="chooseWord()">Play</button></div>
+    <div class="centered-content"><button id="replay-game" class="action-btns hide">Replay</button></div>
 
     <section id="game-screen"></section>
 
@@ -36,6 +36,7 @@
         <h4>Tries Left: <span id="tries-left"></span></h4>
     </section>
 
-    <script src="script.js"></script>
+    <!-- <script src="src/script.js"></script> -->
+    <script src="src/script.js"></script>
 </body>
 </html>

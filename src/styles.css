@@ -1,0 +1,74 @@
+body{
+    font-family: 'Courier New', Courier, monospace;
+}
+.centered-content , #game-screen , .word-container{
+    display: flex;
+    justify-content: center;
+}
+#game-screen{
+    margin-top: 5%;
+}
+input.letter-box {
+    padding: 3%;
+    width: 3%;
+    font-size: large;
+}
+div#incorrect-letters , #halfcorrect-letters{
+    display: flex;
+    font-size: x-large;
+    margin-top: -3%;
+}
+div#incorrect-letters h4 , div#halfcorrect-letters h4{
+    margin-right: 2%;
+}
+section#letter-screen , section#score-screen , #letter-screen-2{
+    margin-left: 10%;
+    margin-top: 5%;
+    display: none;
+    margin-bottom: -3%;
+}
+.hide{
+    display: none;
+}
+.navbar-btns , .action-btns{
+    border: none;
+    padding: 0.7% 4%;
+    border-radius: 33px;
+    background: #fcc482;
+    font-size: medium;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition-duration: 0.6s;
+}
+.navbar-btns:hover , .action-btns:hover{
+    background-color: #ff8a00;
+}
+nav{
+    position: sticky;
+    width: 100%;
+    margin-bottom: 5%;
+}
+section#letters-bank , section#letter-field , section#current-tries-count{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+.alphabet-btns {
+    background: none;
+    margin: 0.1%;
+    padding: 0.5%;
+    border-radius: 5px;
+    border: solid #fcc482;
+    font-family: inherit;
+    cursor: pointer;
+}
+.letter-field {
+    width: 5%;
+    font-size: xxx-large;
+    border: solid 1px;
+    text-align: center;
+}
+.extra-height{
+    padding-top: 5%;
+}
