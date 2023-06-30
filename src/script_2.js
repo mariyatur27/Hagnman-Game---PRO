@@ -1,3 +1,10 @@
+const makeConfetti = () => {
+    const jsConfetti = new JSConfetti()
+    jsConfetti.addConfetti({
+        emojis: ['🌈', '⚡️', '💥', '✨', '💫', '🌸'],
+     });
+}
+
 
 const alphabet = [...Array(26)].map((_, i) => String.fromCharCode(i + 97));
 const word_bank = [];
@@ -57,7 +64,8 @@ const scoreManager = (current_tries, gussed_letters, correct_letters) => {
             for(var i = 0; i < btns.length; i++){
                 document.getElementById(btns[i].id).disabled = true;
             }
-            setTimeout(() => {alert('Congratulations, you won!')}, 1500)
+            setTimeout(() => {alert('Congratulations, you won!')}, 2500)
+            makeConfetti();
         }
     }
     if(current_tries == 0){

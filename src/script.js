@@ -1,16 +1,14 @@
-/**
- * TO DO:
- * 1. Game status to summarize what games have been lost and won
- * 2. Readme file
- * 3. Have a database of articles (from the same website) to select from
- * 4. Do confetti
- * 5. Do popup instructions for version 2
- */
 
+
+const makeConfetti = () => {
+    const jsConfetti = new JSConfetti()
+    jsConfetti.addConfetti({
+        emojis: ['🌈', '⚡️', '💥', '✨', '💫', '🌸'],
+     });
+}
 
 const alphabet = [...Array(26)].map((_, i) => String.fromCharCode(i + 97));
 const word_bank = [];
-
 
 const format = (word, letter_arr) => {
     var clean_arr = [];
@@ -53,11 +51,40 @@ let used_letters_arr=[];
 let secret_word;
 let current_score;
 let guessed_letters = 0;
+let score_list = [];
+let word_list = [];
 
-const scoreTracker = (score, guessed_letters, correct_letter_guessed) => {
+document.getElementById('game-tracker-btn').addEventListener('click', function() {
+    document.getElementById('game-tracker-cont').classList.toggle('hide');
+})
+
+
+const gameTracker = () => {
+
+    document.getElementById('tracking-cont').innerHTML = '';
+
+    if (score_list.length != 0){
+        for(var i = 0; i < score_list.length; i++){
+            let row = document.createElement('div'); row.classList.add('cont-row');
+                let cont1 = document.createElement('h4'); cont1.innerHTML = "Game ".concat(i + 1);
+                row.appendChild(cont1);
+                let cont2 = document.createElement('h4'); cont2.innerHTML = score_list[i];
+                row.appendChild(cont2);
+                let cont3 = document.createElement('h4'); cont3.innerHTML = "Word: ".concat(word_list[i]);
+                row.appendChild(cont3);
+            document.getElementById('tracking-cont').appendChild(row);
+        }
+    }
+}
+
+const scoreTracker = (score, guessed_letters, correct_letter_guessed, word) => {
     if (score > 0){
         if(guessed_letters == correct_letter_guessed){
-            setTimeout(() => {alert('Congratulations, you won!')}, 1500)
+            setTimeout(() => {alert('Congratulations, you won!')}, 2500)
+            score_list.push('won');
+            word_list.push(word.join(''));
+            gameTracker();
+            makeConfetti();
         }
     }
     if (score == 0){
@@ -66,8 +93,10 @@ const scoreTracker = (score, guessed_letters, correct_letter_guessed) => {
             document.getElementById(inputs[i].id).readOnly = true;
         }
         setTimeout(() => {alert('Oooopsss, you lost :(')}, 1500)
+        score_list.push('lost');
+        word_list.push(word.join(''));
+        gameTracker();
     }
-
 }
 
 const checkInput = (id, word_arr) => {
@@ -122,7 +151,7 @@ const checkInput = (id, word_arr) => {
 
     let word_arr_no_duplicates = [...new Set(word_arr)].length
     
-    scoreTracker(current_score , guessed_letters , word_arr_no_duplicates);
+    scoreTracker(current_score , guessed_letters , word_arr_no_duplicates, word_arr);
     
 }
 

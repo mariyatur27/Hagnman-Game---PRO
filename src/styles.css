@@ -34,7 +34,8 @@ section#letter-screen , section#score-screen , #letter-screen-2{
     border: none;
     padding: 0.7% 4%;
     border-radius: 33px;
-    background: #fcc482;
+    background: black;
+    color: white;
     font-size: medium;
     font-family: inherit;
     font-weight: 600;
@@ -42,7 +43,7 @@ section#letter-screen , section#score-screen , #letter-screen-2{
     transition-duration: 0.6s;
 }
 .navbar-btns:hover , .action-btns:hover{
-    background-color: #ff8a00;
+    background-color: rgb(14, 4, 91);
 }
 nav{
     position: sticky;
@@ -71,4 +72,29 @@ section#letters-bank , section#letter-field , section#current-tries-count{
 }
 .extra-height{
     padding-top: 5%;
+}
+div#game-tracker-cont {
+    background: black;
+    color: white;
+    position: fixed;
+    top: 20%;
+    width: 40%;
+    left: 30%;
+    right: 30%;
+    padding: 2%;
+    border-radius: 20px;
+}
+.cont-row {
+    display: flex;
+}
+.cont-row h4 {
+    flex: 0 0 33%;
+}
+.btn-sec{
+    position: fixed;
+    width: 100%;
+    top: 83%;
+    display: flex;
+    justify-content: flex-end;
+    right: 1%;
 }

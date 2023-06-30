@@ -7,7 +7,7 @@
     <link href="src/styles.css" rel="stylesheet"/>
     <title>Hangman PRO</title>
 </head>
-<body>
+<body id='body'>
     <nav>
         <a href="index.html"><button class="navbar-btns">Version 1</button></a>
         <a href="src/index_2.html"><button class="navbar-btns">Version 2</button></a>
@@ -17,7 +17,7 @@
 
     <!-- Version 1 -->
 
-    <div class="centered-content"><button id="start-game" class="action-tbns" onclick="chooseWord()">Play</button></div>
+    <div class="centered-content"><button id="start-game" class="action-btns" onclick="chooseWord()">Play</button></div>
     <div class="centered-content"><button id="replay-game" class="action-btns hide">Replay</button></div>
 
     <section id="game-screen"></section>
@@ -36,7 +36,16 @@
         <h4>Tries Left: <span id="tries-left"></span></h4>
     </section>
 
-    <!-- <script src="src/script.js"></script> -->
+    <section class="btn-sec">
+        <button id="game-tracker-btn" class="action-btns">Game Tracker</button>
+    </section>
+
+    <div id="game-tracker-cont" class="hide">
+        <h3>Game Tracker</h3>
+        <div id="tracking-cont"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
     <script src="src/script.js"></script>
 </body>
 </html>
